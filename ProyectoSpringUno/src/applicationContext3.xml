@@ -15,22 +15,15 @@
 
     </bean>
 
-    <bean id="miEmpleado" class="es.pildoras.loC.DirectorEmpleado">
+    <bean id="miEmpleado" class="es.pildoras.loC.DirectorEmpleado"
+          init-method="metodoInicial" destroy-method="metodoFinal">
 
         <constructor-arg ref="miInforme"> </constructor-arg>
 
-        <property name="email" value="${email}"></property>
-        <property name="nombreEmpresa" value="${nombreEmpresa}"></property>
+
 
     </bean>
 
-    <bean id="miSecretarioEmpleado"  class="es.pildoras.loC.SecretarioEmpleado">
 
-        <property name="informeNuevo" ref="miInforme"></property>
-
-        <property name="email" value="secretaria@jose.es"></property>
-        <property name="nombreEmpresa" value="PildorasInformaticas"></property>
-
-    </bean>
 
 </beans>

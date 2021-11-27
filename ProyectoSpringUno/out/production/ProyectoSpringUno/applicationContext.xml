@@ -8,22 +8,28 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
+    <context:property-placeholder location="classpath:datosEmpresa.propiedades"/>
+
 
     <bean id="miInforme" class="es.pildoras.loC.Informe">
 
     </bean>
 
-    <bean id="miEmpleado" class="es.pildoras.loC.JefeEmpleado">
+    <bean id="miEmpleado" class="es.pildoras.loC.DirectorEmpleado">
 
         <constructor-arg ref="miInforme"> </constructor-arg>
+
+        <property name="email" value="${email}"></property>
+        <property name="nombreEmpresa" value="${nombreEmpresa}"></property>
 
     </bean>
 
     <bean id="miSecretarioEmpleado"  class="es.pildoras.loC.SecretarioEmpleado">
 
-        <property name="informeNuevo" ref="miInforme">
+        <property name="informeNuevo" ref="miInforme"></property>
 
-        </property>
+        <property name="email" value="secretaria@jose.es"></property>
+        <property name="nombreEmpresa" value="PildorasInformaticas"></property>
 
     </bean>
 
