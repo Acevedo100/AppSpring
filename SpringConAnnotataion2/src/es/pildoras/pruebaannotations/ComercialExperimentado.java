@@ -3,10 +3,31 @@ package es.pildoras.pruebaannotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component()
 public class ComercialExperimentado implements Empleados{
+
+    // Ejecucion de codigo despues de crear el beans
+
+    @PostConstruct
+    public void ejecutaDespuesCreacion(){
+        System.out.println("Ejecutando tras creacion de Bean");
+    }
+
+
+    // Ejecuacion de codigo despues de apagado el beans
+
+    @PreDestroy
+    public void ejecutaAntesDestruccion(){
+        System.out.println("Ejecutando antes de la destruccion");
+    }
+
+
 
     private  CreacionInformeFinanciero nuevoInforme;
 
@@ -15,8 +36,6 @@ public class ComercialExperimentado implements Empleados{
         this.nuevoInforme = nuevoInforme;
         }
     */
-
-
 
     @Autowired
     @Qualifier("informeFinancieroTrim4")
